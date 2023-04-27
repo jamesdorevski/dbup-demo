@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres:15.2-alpine
+    container_name: dbup-demo-db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret123
+      - POSTGRES_DB=dbup
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
